@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   app:
+    &app
     build:
       context: .
       dockerfile: Dockerfile
@@ -37,6 +38,7 @@ services:
       start_period: 40s
 
   db:
+    &db
     image: postgres:16.4
     restart: unless-stopped
     environment:
@@ -50,6 +52,22 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  app-dev:
+    <<: *app
+    container_name: ${PROJECT_NAME}_dev_app
+    profiles:
+      - dev
+    ports:
+      - "9999:80"
+
+  db-dev:
+    <<: *db
+    container_name: ${PROJECT_NAME}_dev_db
+    profiles:
+      - dev
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres_data:
