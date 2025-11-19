@@ -49,7 +49,7 @@ ARG python_version=3.13
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 STOPSIGNAL SIGINT
-EXPOSE 8080/tcp
+EXPOSE 80/tcp
 
 SHELL ["/bin/sh", "-exc"]
 
