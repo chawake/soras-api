@@ -26,7 +26,7 @@ services:
     volumes:
       - app_localstorage:/app/storage
       - app_logs:/app/logs
-      - chrome_profile:/app/LLMProvider
+      - chrome_profile:/root/LLMProvider
     depends_on:
       db:
         condition: service_healthy
