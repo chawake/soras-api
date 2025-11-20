@@ -27,6 +27,8 @@ services:
       - app_localstorage:/app/storage
       - app_logs:/app/logs
       - chrome_profile:/app/LLMProvider
+    ports:
+      - "80:80"
     depends_on:
       db:
         condition: service_healthy
