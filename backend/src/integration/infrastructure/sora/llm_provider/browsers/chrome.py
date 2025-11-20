@@ -52,6 +52,10 @@ class ChromeBrowser(BaseBrowser):
         options.add_argument(f"user-agent={self.user_agent}")
         # Don't use fixed remote-debugging-port - let Chrome pick random port
         options.add_argument("--disable-software-rasterizer")
+        # Additional flags for headless stability
+        options.add_argument("--single-process")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-background-networking")
 
         # Add proxy if provided
         if proxy:
