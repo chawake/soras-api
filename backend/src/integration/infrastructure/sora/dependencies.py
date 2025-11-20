@@ -21,11 +21,19 @@ _browsers = None
 def _get_browsers():
     global _browsers
     if _browsers is None:
-        _browsers = [
-            ChromeBrowser(get_sora_rest_adapter(), browser_name="chrome"),
-            ChromeBrowser(get_sora_rest_adapter(), browser_name="chrome2"),
-            ChromeBrowser(get_sora_rest_adapter(), browser_name="chrome3")
-        ]
+        try:
+            print("Initializing Chrome browsers...")
+            _browsers = [
+                ChromeBrowser(get_sora_rest_adapter(), browser_name="chrome"),
+                ChromeBrowser(get_sora_rest_adapter(), browser_name="chrome2"),
+                ChromeBrowser(get_sora_rest_adapter(), browser_name="chrome3")
+            ]
+            print("✓ All Chrome browsers initialized successfully")
+        except Exception as e:
+            print(f"✗ Failed to initialize browsers: {e}")
+            import traceback
+            traceback.print_exc()
+            raise
     return _browsers
 
 
