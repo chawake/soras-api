@@ -34,7 +34,7 @@ class ChromeBrowser(BaseBrowser):
         self.user_agent = self.user_agents.random
 
         if self.use_undetected:
-            options = uc.ChromeOptions()
+            options = uc.ChromeOptions() 
         else:
             options = ChromeOptions()
 
