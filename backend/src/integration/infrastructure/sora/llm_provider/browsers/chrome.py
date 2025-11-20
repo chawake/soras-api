@@ -46,10 +46,12 @@ class ChromeBrowser(BaseBrowser):
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-setuid-sandbox")
-        # options.add_argument("--headless=new")
+        options.add_argument("--headless=new")  # Enable headless mode for Docker
         options.add_argument("--disable-web-security")
         options.add_argument("--disable-features=IsolateOrigins,site-per-process")
         options.add_argument(f"user-agent={self.user_agent}")
+        options.add_argument("--remote-debugging-port=9222")  # Required for headless
+        options.add_argument("--disable-software-rasterizer")
 
         # Add proxy if provided
         if proxy:
