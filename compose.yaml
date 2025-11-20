@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: ${PROJECT_NAME:-sora-api}_app
     restart: unless-stopped
     environment:
       - ENVIRONMENT=${ENVIRONMENT:-prod}
@@ -40,6 +41,7 @@ services:
   db:
     &db
     image: postgres:16.4
+    container_name: ${PROJECT_NAME:-sora-api}_db
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${DB_USER:-postgres}
