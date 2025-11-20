@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# Start Xvfb for Chrome GUI mode
+Xvfb :99 -screen 0 1920x1080x24 &
+export DISPLAY=:99
+
 # Function to wait for database
 wait_for_db() {
     echo "Waiting for database to be ready..."

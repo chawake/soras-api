@@ -88,7 +88,8 @@ apt-get install --quiet --no-install-recommends --assume-yes \
   libxfixes3 \
   libxkbcommon0 \
   libxrandr2 \
-  xdg-utils
+  xdg-utils \
+  xvfb
 
 # Install Chrome using modern keyring method
 wget -q -O /tmp/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb

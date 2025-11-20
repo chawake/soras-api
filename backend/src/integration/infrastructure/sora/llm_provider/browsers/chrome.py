@@ -46,7 +46,7 @@ class ChromeBrowser(BaseBrowser):
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-setuid-sandbox")
-        options.add_argument("--headless=new")  # Enable headless mode for Docker
+        # options.add_argument("--headless=new")  # Disabled - using Xvfb virtual display instead
         options.add_argument("--disable-web-security")
         options.add_argument("--disable-features=IsolateOrigins,site-per-process")
         options.add_argument(f"user-agent={self.user_agent}")
