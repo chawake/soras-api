@@ -112,6 +112,7 @@ COPY ./backend/alembic.ini /app
 COPY ./backend/src /app/src
 RUN mkdir -p /app/storage && chown $user_id:$group_id -R /app/storage
 RUN mkdir -p /app/logs && chown $user_id:$group_id -R /app/logs
+RUN mkdir -p /root/LLMProvider && chmod 755 /root/LLMProvider
 
-USER $user_id:$group_id
+# USER $user_id:$group_id  # Commented out - run as root to access /root/LLMProvider
 WORKDIR /app
